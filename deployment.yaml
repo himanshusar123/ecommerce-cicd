@@ -1,0 +1,27 @@
+apiVersion: apps/v1
+
+kind: Deployment
+
+metadata:
+  name: ecommerce-app
+
+spec:
+  replicas: 2
+
+  selector:
+    matchLabels:
+      app: ecommerce
+
+  template:
+    metadata:
+      labels:
+        app: ecommerce
+
+    spec:
+      containers:
+      - name: ecommerce
+
+        image: us-central1-docker.pkg.dev/project-2f5b3e28-ac7e-4407-938/ecommerce-repo/ecommerce-app:v1
+
+        ports:
+        - containerPort: 5000
